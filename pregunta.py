@@ -42,16 +42,15 @@ def ingest_data():
                     cantidad_de_palabras_clave=int(col[1])
                     flotante_col2=col[2].replace(',', '.')
                     porcentaje_de_palabras_clave=float(flotante_col2)
-                    palabras_clave=' '.join(col[4:])
+                    principales_palabras_clave=' '.join(col[4:])
 
-                    data2.append([cluster, cantidad_de_palabras_clave, porcentaje_de_palabras_clave, palabras_clave])
+                    data2.append([cluster, cantidad_de_palabras_clave, porcentaje_de_palabras_clave, principales_palabras_clave])
                 else:
                     palabras_clave_limpia=[item.replace('.','') for item in col]
-                    palabras_clave=', '.join(palabras_clave_limpia)
-                    data2[len(data2)-1][3] += ' ' + palabras_clave 
+                    principales_palabras_clave=', '.join(palabras_clave_limpia)
+                    data2[len(data2)-1][3] += ' ' + principales_palabras_clave 
 
         df=pd.DataFrame(data2, columns=headers)
-        
         return df
 
 
