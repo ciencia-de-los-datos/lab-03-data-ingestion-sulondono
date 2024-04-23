@@ -47,7 +47,7 @@ def ingest_data():
                     data2.append([cluster, cantidad_de_palabras_clave, porcentaje_de_palabras_clave, principales_palabras_clave])
                 else:
                     palabras_clave_limpia=[item.replace('.','') for item in col]
-                    principales_palabras_clave=', '.join(palabras_clave_limpia)
+                    principales_palabras_clave=' '.join(palabras_clave_limpia)
                     data2[len(data2)-1][3] += ' ' + principales_palabras_clave 
 
         df=pd.DataFrame(data2, columns=headers)
